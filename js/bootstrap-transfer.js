@@ -137,10 +137,12 @@
 
                         var selected = '';
 
-                        if (!force_hilite_off && settings.hilite_selection && !old[i].hasOwnProperty(e.value.replace('&amp;', '&'))) {
-                            selected = 'selected="selected"';
+                        if (e != undefined){
+                            if (!force_hilite_off && settings.hilite_selection && !old[i].hasOwnProperty(e.value.replace('&amp;', '&'))) {
+                                selected = 'selected="selected"';
+                            }
+                            source[i].append('<option ' + selected + 'value="' + e.value + '">' + e.content + '</option>');
                         }
-                        source[i].append('<option ' + selected + 'value="' + e.value + '">' + e.content + '</option>');
                     }
                 }
 
