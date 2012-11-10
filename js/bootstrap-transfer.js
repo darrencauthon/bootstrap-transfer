@@ -150,11 +150,14 @@
                 var counter = 0;
                 _this.$remaining_select.find('option').each(function() {
                     var inner = _this.$filter_input.val().toLowerCase();
-                    var outer = $(this).html().toLowerCase();
-                    if (outer.indexOf(inner) == -1) {
-                        _this._hidden_list.push($(this)[0].index + counter);
-                        $(this).remove();
-                        counter += 1;
+                    var html = $(this).html();
+                    if (html != undefined) {
+                        var outer = html.toLowerCase();
+                        if (outer.indexOf(inner) == -1) {
+                            _this._hidden_list.push($(this)[0].index + counter);
+                            $(this).remove();
+                            counter += 1;
+                        }
                     }
                 });
             };
