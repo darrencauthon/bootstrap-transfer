@@ -149,10 +149,11 @@
                 _this._hidden_list = [];
                 var counter = 0;
                 _this.$remaining_select.find('option').each(function() {
-                    var inner = _this.$filter_input.val().toLowerCase();
-                    var html = $(this).html();
-                    if (html != undefined) {
-                        var outer = html.toLowerCase();
+                    var inner_html = _this.$filter_input.val();
+                    var outer_html = $(this).html();
+                    if (inner_html != undefined && outer_html != undefined) {
+                        var inner = inner_html.toLowerCase();
+                        var outer = outer_html.toLowerCase();
                         if (outer.indexOf(inner) == -1) {
                             _this._hidden_list.push($(this)[0].index + counter);
                             $(this).remove();
